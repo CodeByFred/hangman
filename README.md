@@ -2,7 +2,7 @@
 
 ## MVP
 
-- - A game should start with a word being randomly selected.
+- A game should start with a word being randomly selected.
 - A representation of the word made up of underscore (\_) characters should display on the screen.
 - Create a user interface made up of buttons representing all 26 letters of the alphabet.
 - Clicking a button should register its letter as a 'guess'
