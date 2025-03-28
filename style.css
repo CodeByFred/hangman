@@ -37,6 +37,16 @@ li {
 .game__container-keys--row {
   display: flex;
 }
+.game__container--guesses {
+  margin-top: 100px;
+}
+
+#guesses {
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 4rem;
+}
 
 #game-record {
   display: flex;

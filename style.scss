@@ -37,9 +37,13 @@ li {
   &__container-keys--row {
     display: flex;
   }
+  &__container--guesses {
+    margin-top: 100px;
+  }
 }
 
 #guesses {
+  @include mixins.alphabet-font(4rem);
 }
 
 #game-record {

@@ -1,6 +1,14 @@
 # Hangman with JavaScript
 
-## MVP
+## Skills Required
+
+- Arrays
+- Iterators
+- DOM manipulation
+- Event Listeners
+- String manipulation
+
+### MVP
 
 - A game should start with a word being randomly selected.
 - A representation of the word made up of underscore (\_) characters should display on the screen.
@@ -13,7 +21,7 @@
 - There should be some functionality to play again.
 - This should be styled to support mobile, tablet, and desktop views
 
-## Extras
+### Extras
 
 - Allow keyboard input
 - Keep track of words that have been used already and display them on the screen

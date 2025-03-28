@@ -1,18 +1,32 @@
-// Arrays - Iterators - DOM manipulation - Event Listeners - String manipulation
-
-const wordList = [];
+let wordList = [];
+let currentWord = "";
+let wordsleft = 200;
 
 function readFile() {
-  const reader = new FileReader();
-  const rawData = reader.readAsText("./assets/example-words.json", "utf-8");
-  wordList = JSON.parse(rawData);
+  fetch("./assets/example-words.json")
+    .then((response) => response.json())
+    .then((data) => {
+      wordList = data;
+      getRandomWord();
+      displayUnderscores();
+      console.log("Words loaded");
+    })
+    .catch((error) => console.error("Error loading the file:", error));
 }
 
 function getRandomWord() {
-  const index = Math.floor(Math.random() * 200);
-  const selectedWord = wordList[index];
-  console.log(selectedWord);
-  return selectedWord;
+  const index = Math.floor(Math.random() * wordsleft);
+  console.log(index);
+  currentWord = wordList[index];
+}
+
+function displayUnderscores() {
+  const guessDisplay = document.querySelector("#guesses");
+  let wordUnderscores = currentWord
+    .split("")
+    .map((letter) => "_")
+    .join(" ");
+  guessDisplay.textContent = wordUnderscores;
 }
 
 const inputLetter = document.querySelector("input");
@@ -23,3 +37,11 @@ inputLetter.addEventListener("keyup", (e) => {
   capture.textContent = `You entered: ${e.key}`;
   inputLetter.value = "";
 });
+
+function gameStart() {
+  document.querySelector("#start").addEventListener("click", (e) => {
+    readFile();
+  });
+}
+
+gameStart();
