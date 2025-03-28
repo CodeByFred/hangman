@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman</title>
     <script type="json" src="./assets/example-words.json"></script>
-    <script src="./main.js" defer></script>
+    <script type="module" src="./main.js" defer></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,14 +58,19 @@
                         <li id="Y">Y</li>
                         <li id="Z">Z</li>
                     </div>
+                    <input type="text" placeholder="Enter a letter" maxlength="1">
+                    <p id="capture">You entered: </p>
                 </ul>
             </div>
-            <div>Previous Word List</div>
+            <div>
+                <p>Previous Words</p>
+                <button>Clear List</button>
+            </div>
         </div>
         <div>
             <div id="guesses">Correct Guesses</div>
         </div>
-        <div><button>Start Game</button><button>Clear Previous Words</button></div>
+        <div><button>Start Game</button></div>
     </main>
 </body>
 
