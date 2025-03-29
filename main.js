@@ -1,9 +1,14 @@
+import { storeLettersGuessed } from "./js/functionality.js";
+
+import { updateAlphabetDisplay } from "./js/dom.js";
+
 let wordList = [];
 const previousWordList = [];
 let currentWord = "";
 let currentWordUnderscoresArr = [];
 let wordsleft = 200;
 let guessDisplay = document.querySelector("#guesses");
+let guesses = 0;
 
 async function readFile() {
   await fetch("./assets/example-words.json")
@@ -21,7 +26,7 @@ function getRandomWord() {
   const index = Math.floor(Math.random() * wordsleft);
   currentWord = wordList[index];
   previousWordList.push(currentWord);
-  console.log(currentWord);
+  console.log(`Current word: ${currentWord}`);
 }
 
 function displayUnderscores() {
@@ -33,19 +38,25 @@ const inputLetter = document.querySelector("input");
 const capture = document.querySelector("#capture");
 
 inputLetter.addEventListener("keyup", (e) => {
-  console.log(e.key);
-  capture.textContent = `You entered: ${e.key}`;
+  // console.log(e.key);
+  const letterEntered = e.key.toUpperCase();
+  capture.textContent = `You entered: ${letterEntered}`;
   inputLetter.placeholder = "";
   inputLetter.value = "";
+  let found = false;
   for (let i = 0; i < currentWord.length; i++) {
-    console.log(e.key, currentWord[i]);
+    // console.log(letterEntered, currentWord[i]);
     if (e.key.toLowerCase() === currentWord[i]) {
-      console.log("comparsion");
-
       currentWordUnderscoresArr[i] = currentWord[i];
       guessDisplay.textContent = currentWordUnderscoresArr.join(" ");
+      found = !found;
     }
   }
+  storeLettersGuessed(letterEntered);
+  if (!found) guesses++;
+  console.log(guesses);
+  updateAlphabetDisplay(letterEntered, found);
+  // rotate image
 });
 
 function gameStart() {
@@ -69,3 +80,15 @@ function resetGame() {
 gameStart();
 
 resetGame();
+
+document.querySelectorAll(".game__letter").forEach((cell, letter) => {
+  cell.addEventListener("click", (e) => {
+    // if condition for game over
+    //
+    //
+    // condition when letter is selected with mouse
+    //
+    console.log(cell.id);
+    document.querySelector(`#${cell.id}`).style.backgroundColor = "green";
+  });
+});

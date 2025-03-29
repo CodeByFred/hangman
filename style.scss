@@ -10,6 +10,7 @@ li {
   align-items: center;
   @include mixins.alphabet-font(2.75rem);
   &:hover {
+    cursor: pointer;
     background-color: blue;
   }
 }
