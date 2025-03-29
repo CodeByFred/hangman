@@ -9,6 +9,9 @@ li {
   justify-content: center;
   align-items: center;
   @include mixins.alphabet-font(2.75rem);
+  &:hover {
+    background-color: blue;
+  }
 }
 
 .head {
@@ -39,6 +42,9 @@ li {
   }
   &__container--guesses {
     margin-top: 100px;
+  }
+  &__container--previous {
+    border: 1px solid black;
   }
 }
 

@@ -1,17 +1,18 @@
 let wordList = [];
+const previousWordList = [];
 let currentWord = "";
 let currentWordUnderscoresArr = [];
 let wordsleft = 200;
 let guessDisplay = document.querySelector("#guesses");
 
-function readFile() {
-  fetch("./assets/example-words.json")
+async function readFile() {
+  await fetch("./assets/example-words.json")
     .then((response) => response.json())
     .then((data) => {
       wordList = data;
+      console.log("Words loaded");
       getRandomWord();
       displayUnderscores();
-      console.log("Words loaded");
     })
     .catch((error) => console.error("Error loading the file:", error));
 }
@@ -19,6 +20,7 @@ function readFile() {
 function getRandomWord() {
   const index = Math.floor(Math.random() * wordsleft);
   currentWord = wordList[index];
+  previousWordList.push(currentWord);
   console.log(currentWord);
 }
 
@@ -52,4 +54,18 @@ function gameStart() {
   });
 }
 
+function resetGame() {
+  document.querySelector("#reset").addEventListener("click", (e) => {
+    getRandomWord();
+    displayUnderscores();
+    console.log("done");
+    const addWord = document.createElement("p");
+    const addWordText = document.createTextNode(currentWord);
+    addWord.appendChild(addWordText);
+    document.querySelector("#previous-words").appendChild(addWord);
+  });
+}
+
 gameStart();
+
+resetGame();
