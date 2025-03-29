@@ -1,6 +1,8 @@
 let wordList = [];
 let currentWord = "";
+let currentWordUnderscoresArr = [];
 let wordsleft = 200;
+let guessDisplay = document.querySelector("#guesses");
 
 function readFile() {
   fetch("./assets/example-words.json")
@@ -16,17 +18,13 @@ function readFile() {
 
 function getRandomWord() {
   const index = Math.floor(Math.random() * wordsleft);
-  console.log(index);
   currentWord = wordList[index];
+  console.log(currentWord);
 }
 
 function displayUnderscores() {
-  const guessDisplay = document.querySelector("#guesses");
-  let wordUnderscores = currentWord
-    .split("")
-    .map((letter) => "_")
-    .join(" ");
-  guessDisplay.textContent = wordUnderscores;
+  currentWordUnderscoresArr = currentWord.split("").map(() => "_");
+  guessDisplay.textContent = currentWordUnderscoresArr.join(" ");
 }
 
 const inputLetter = document.querySelector("input");
@@ -35,7 +33,17 @@ const capture = document.querySelector("#capture");
 inputLetter.addEventListener("keyup", (e) => {
   console.log(e.key);
   capture.textContent = `You entered: ${e.key}`;
+  inputLetter.placeholder = "";
   inputLetter.value = "";
+  for (let i = 0; i < currentWord.length; i++) {
+    console.log(e.key, currentWord[i]);
+    if (e.key.toLowerCase() === currentWord[i]) {
+      console.log("comparsion");
+
+      currentWordUnderscoresArr[i] = currentWord[i];
+      guessDisplay.textContent = currentWordUnderscoresArr.join(" ");
+    }
+  }
 });
 
 function gameStart() {
