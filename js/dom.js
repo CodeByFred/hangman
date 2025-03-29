@@ -6,3 +6,7 @@ export const updateAlphabetDisplay = (letterGuessed, value) => {
     letter.style.backgroundColor = "red";
   }
 };
+
+export const rotateImage = (guessNumber) => {
+  document.querySelector("#image").src = `./assets/img/h-${guessNumber}.jpg`;
+};

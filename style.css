@@ -60,4 +60,9 @@ li:hover {
   gap: 35px;
 }
 
+#image {
+  height: 250px;
+  width: 250px;
+}
+
 /*# sourceMappingURL=style.css.map */

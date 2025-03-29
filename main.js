@@ -1,6 +1,6 @@
 import { storeLettersGuessed } from "./js/functionality.js";
 
-import { updateAlphabetDisplay } from "./js/dom.js";
+import { updateAlphabetDisplay, rotateImage } from "./js/dom.js";
 
 let wordList = [];
 const previousWordList = [];
@@ -53,10 +53,12 @@ inputLetter.addEventListener("keyup", (e) => {
     }
   }
   storeLettersGuessed(letterEntered);
-  if (!found) guesses++;
+  if (!found) {
+    guesses++;
+    rotateImage(guesses);
+  }
   console.log(guesses);
   updateAlphabetDisplay(letterEntered, found);
-  // rotate image
 });
 
 function gameStart() {
