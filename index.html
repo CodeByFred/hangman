@@ -5,18 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman</title>
-    <script type="json" src="./assets/example-words.json"></script>
-    <script type="module" src="./main.js" defer></script>
+    <script src="./main.js" type="module" defer></script>
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="data:,">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-    <audio id="audio" src="./assets/audio/gameOver.mp3"></audio>
+
 </head>
 
 <body>
-    <header class="head">
+    <header class="header">
         <p id="game-number">Game #</p>
         <div>
             <p id="won">Games Won:</p>
@@ -29,53 +28,69 @@
             <div><img id="image" src="./assets/img/h-0.jpg" alt="hangman"></div>
             <div class="game__alphabet">
                 <ul class="game__list-key">
-                    <div class="game__container-keys--row">
-                        <li class="game__letter" id="A">A</li>
-                        <li class="game__letter" id="B">B</li>
-                        <li class="game__letter" id="C">C</li>
-                        <li class="game__letter" id="D">D</li>
-                        <li class="game__letter" id="E">E</li>
-                        <li class="game__letter" id="F">F</li>
+                    <li class="game__letter" id="A">A</li>
+                    <li class="game__letter" id="B">B</li>
+                    <li class="game__letter" id="C">C</li>
+                    <li class="game__letter" id="D">D</li>
+                    <li class="game__letter" id="E">E</li>
+                    <li class="game__letter" id="F">F</li>
+                </ul>
+                <div class="game__container-keys--row">
+                    <ul class="game__list-key">
                         <li class="game__letter" id="G">G</li>
                         <li class="game__letter" id="H">H</li>
                         <li class="game__letter" id="I">I</li>
                         <li class="game__letter" id="J">J</li>
                         <li class="game__letter" id="K">K</li>
                         <li class="game__letter" id="L">L</li>
+                    </ul>
+                </div>
+                <div class="game__container-keys--row">
+                    <ul class="game__list-key">
                         <li class="game__letter" id="M">M</li>
-                    </div>
-
-                    <div class="game__container-keys--row">
                         <li class="game__letter" id="N">N</li>
                         <li class="game__letter" id="O">O</li>
                         <li class="game__letter" id="P">P</li>
                         <li class="game__letter" id="Q">Q</li>
                         <li class="game__letter" id="R">R</li>
+                    </ul>
+                </div>
+                <div class="game__container-keys--row">
+                    <ul class="game__list-key">
                         <li class="game__letter" id="S">S</li>
                         <li class="game__letter" id="T">T</li>
                         <li class="game__letter" id="U">U</li>
                         <li class="game__letter" id="V">V</li>
                         <li class="game__letter" id="W">W</li>
                         <li class="game__letter" id="X">X</li>
+                    </ul>
+                </div>
+                <div class="game__container-keys--row">
+                    <ul class="game__list-key">
                         <li class="game__letter" id="Y">Y</li>
                         <li class="game__letter" id="Z">Z</li>
-                    </div>
-                    <label for="input">Enter a letter</label>
-                    <input type="text" id="input" maxlength="1" autocomplete="off">
-                </ul>
+                    </ul>
+                </div>
             </div>
+
+
             <div class="game__container--previous">
                 <h2>Previous Words</h2>
                 <p id="previous-words"></p>
             </div>
         </div>
         <div class="game__container--guesses">
-            <div id="guesses">
-            </div>
+            <div id="guesses"></div>
+        </div>
+        <div>
+            <label for="input">Enter a letter</label>
+            <input type="text" id="input" maxlength="1" autocomplete="off">
         </div>
         <div><button id="start">Start Game</button><button id="next-game">Next Game</button>
         </div>
     </main>
+    <footer> <audio id="audio" src="./assets/audio/gameOver.mp3"></audio>
+    </footer>
 </body>
 
 </html>

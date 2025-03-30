@@ -13,10 +13,9 @@ li {
 }
 li:hover {
   cursor: pointer;
-  background-color: blue;
 }
 
-.head {
+.header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -29,6 +28,14 @@ li:hover {
   flex-direction: column;
   align-items: center;
 }
+.game__heading {
+  margin: 5% 0;
+}
+.game__alphabet {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
 .game__content {
   width: 100%;
   display: flex;
@@ -37,9 +44,16 @@ li:hover {
 }
 .game__list-key {
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 15px;
+  gap: 15px;
 }
 .game__container-keys--row {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .game__container--guesses {
   margin-top: 100px;

@@ -37,15 +37,15 @@ document.querySelector("#next-game").addEventListener("click", () => {
 });
 
 document.querySelectorAll(".game__letter").forEach((cell) => {
+  const keyPressed = cell.id;
   cell.addEventListener("click", () => {
-    const keyPressed = cell.id;
-    let playedBefore = hasLetterBeenPlayed(keyPressed, lettersGuessed);
+    if (!gameOver && wordList.length !== 0) {
+      let playedBefore = hasLetterBeenPlayed(keyPressed, lettersGuessed);
 
-    playerTurn(keyPressed, currentWord, playedBefore, gameStats);
-
-    if (wordList.length === 0 || gameOver) {
+      playerTurn(keyPressed, currentWord, playedBefore, gameStats);
+    }
+    if (gameOver) {
       document.querySelector("#next-game").style.display = "block";
-      addToPreviousWordList(currentWord);
       displayGameStats(gameStats);
     }
   });
@@ -60,7 +60,6 @@ document.querySelector("input").addEventListener("keyup", (e) => {
 
     if (wordList.length === 0 || gameOver) {
       document.querySelector("#next-game").style.display = "block";
-      addToPreviousWordList(currentWord);
       displayGameStats(gameStats);
       console.log(gameStats);
     }
