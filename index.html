@@ -18,9 +18,9 @@
 <body>
     <header class="head">
         <p id="game-number">Game #</p>
-        <div id="game-record">
-            <p>Games Won:</p>
-            <p>Games Lost:</p>
+        <div>
+            <p id="won">Games Won:</p>
+            <p id="lost">Games Lost:</p>
         </div>
     </header>
     <main class="game">
@@ -60,8 +60,8 @@
                         <li class="game__letter" id="Y">Y</li>
                         <li class="game__letter" id="Z">Z</li>
                     </div>
-                    <input type="text" placeholder="Enter a letter" maxlength="1">
-                    <p id="capture">You entered: </p>
+                    <label for="input">Enter a letter</label>
+                    <input type="text" id="input" maxlength="1" autocomplete="off">
                 </ul>
             </div>
             <div class="game__container--previous">

@@ -55,14 +55,13 @@ li:hover {
   font-size: 4rem;
 }
 
-#game-record {
-  display: flex;
-  gap: 35px;
-}
-
 #image {
   height: 250px;
   width: 250px;
+}
+
+#next-game {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

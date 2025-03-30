@@ -1,6 +1,11 @@
 export let lettersGuessed = [];
 export let wordList = [];
 export let currentWord = "";
+export let gameStats = {
+  gameNumber: 1,
+  gamesWon: 0,
+  gamesLost: 0,
+};
 let wordsleft = 0;
 const previousWordList = [];
 
@@ -45,9 +50,10 @@ export const hasLetterBeenPlayed = (ch, arr) => {
 };
 
 export function addToPreviousWordList(word) {
-  previousWordList.push(word);
-  const addWord = document.createElement("p");
-  const addWordText = document.createTextNode(word);
-  addWord.appendChild(addWordText);
-  document.querySelector("#previous-words").appendChild(addWord);
+  if (!previousWordList.includes(word)) {
+    previousWordList.push(word);
+    const addWord = document.createElement("p");
+    addWord.textContent = word;
+    document.querySelector("#previous-words").appendChild(addWord);
+  }
 }

@@ -8,7 +8,7 @@ export function displayUnderscores(currentWord) {
   guessDisplay.textContent = currentWordUnderscoresArr.join(" ");
 }
 
-export const playerTurn = (letter, currentWord, value) => {
+export const playerTurn = (letter, currentWord, value, gameStats) => {
   if (value) return;
   document.querySelector("input").placeholder = "";
   document.querySelector("input").value = "";
@@ -21,6 +21,15 @@ export const playerTurn = (letter, currentWord, value) => {
       found = true;
     }
   }
+  console.log(currentWordUnderscoresArr.join(""), currentWord);
+
+  if (currentWordUnderscoresArr.join("") === currentWord) {
+    console.log("game over");
+    gameOver = true;
+    gameStats.gamesWon++;
+    updateAlphabetDisplay(letter, found);
+    return;
+  }
   if (!found) {
     guesses++;
   }
@@ -30,6 +39,7 @@ export const playerTurn = (letter, currentWord, value) => {
     console.log(guesses);
     rotateImage(guesses);
     gameOver = true;
+    gameStats.gamesLost++;
   } else {
     rotateImage(guesses);
   }
@@ -62,3 +72,12 @@ export function resetGame(word) {
   guesses = 0;
   rotateImage(guesses);
 }
+
+export const displayGameStats = (stats) => {
+  document.querySelector(
+    "#game-number"
+  ).textContent = `Game #${stats.gameNumber}`;
+  document.querySelector("#won").textContent = `Games Won: ${stats.gamesWon}`;
+
+  document.querySelector("#lost").textContent = `Games Lost ${stats.gamesLost}`;
+};
