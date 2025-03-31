@@ -23,6 +23,7 @@ document.querySelector("#start").addEventListener("click", async (e) => {
   displayUnderscores(currentWord);
   displayGameStats(gameStats);
   document.querySelector("#start").style.display = "none";
+  document.querySelector("#input").focus();
 });
 
 document.querySelector("#next-game").addEventListener("click", () => {
