@@ -8,6 +8,45 @@ export function displayUnderscores(currentWord) {
   guessDisplay.textContent = currentWordUnderscoresArr.join(" ");
 }
 
+export const updateAlphabetDisplay = (letterGuessed, value) => {
+  const letter = document.querySelector(`#${letterGuessed}`);
+  if (value) {
+    letter.style.backgroundColor = "green";
+  } else {
+    letter.style.backgroundColor = "red";
+  }
+};
+
+export const rotateImage = (guessNumber) => {
+  document.querySelector("#image").src = `./assets/img/h-${guessNumber}.jpg`;
+};
+
+export function clearAlphabet(alphabet) {
+  console.log(alphabet);
+  for (let letter of alphabet) {
+    document.querySelector(`#${letter}`).style.backgroundColor = "white";
+  }
+}
+
+export function resetGame(word) {
+  displayUnderscores(word);
+  gameOver = false;
+  guesses = 0;
+  rotateImage(guesses);
+}
+
+export const displayGameStats = (stats) => {
+  document.querySelector(
+    "#game-number"
+  ).textContent = `Game #${stats.gameNumber}`;
+  document.querySelector("#won").textContent = `Games Won: ${stats.gamesWon}`;
+
+  document.querySelector("#lost").textContent = `Games Lost ${stats.gamesLost}`;
+};
+//
+//
+//
+//
 export const playerTurn = (letter, currentWord, value, gameStats) => {
   if (value) return;
   document.querySelector("input").placeholder = "";
@@ -44,40 +83,4 @@ export const playerTurn = (letter, currentWord, value, gameStats) => {
     rotateImage(guesses);
   }
   updateAlphabetDisplay(letter, found);
-};
-
-export const updateAlphabetDisplay = (letterGuessed, value) => {
-  const letter = document.querySelector(`#${letterGuessed}`);
-  if (value) {
-    letter.style.backgroundColor = "green";
-  } else {
-    letter.style.backgroundColor = "red";
-  }
-};
-
-export const rotateImage = (guessNumber) => {
-  document.querySelector("#image").src = `./assets/img/h-${guessNumber}.jpg`;
-};
-
-export function clearAlphabet(alphabet) {
-  console.log(alphabet);
-  for (let letter of alphabet) {
-    document.querySelector(`#${letter}`).style.backgroundColor = "white";
-  }
-}
-
-export function resetGame(word) {
-  displayUnderscores(word);
-  gameOver = false;
-  guesses = 0;
-  rotateImage(guesses);
-}
-
-export const displayGameStats = (stats) => {
-  document.querySelector(
-    "#game-number"
-  ).textContent = `Game #${stats.gameNumber}`;
-  document.querySelector("#won").textContent = `Games Won: ${stats.gamesWon}`;
-
-  document.querySelector("#lost").textContent = `Games Lost ${stats.gamesLost}`;
 };

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Background: <a href="https://www.freepik.com/free-ai-image/noisy-background_1038692.htm">Image by kues1 on Freepik</a> -->
+<!-- Image: <a href="https://www.freepik.com/free-photo/gallows-rope_5136935.htm">Image by picoftasty on Freepik</a> -->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +14,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
@@ -25,7 +27,7 @@
     <main class="game">
         <h1 class="game__heading">Don't Leave Me Hang(ing)man!</h1>
         <div class="game__content">
-            <div><img id="image" src="./assets/img/h-0.jpg" alt="hangman"></div>
+            <div><img id="image" src='./assets/img/rope.jpg' alt="hangman"></div>
             <div class="game__alphabet">
                 <ul class="game__list-key">
                     <li class="game__letter" id="A">A</li>
@@ -72,12 +74,11 @@
                     </ul>
                 </div>
             </div>
-
-
-            <div class="game__container--previous">
-                <h2>Previous Words</h2>
-                <p id="previous-words"></p>
-            </div>
+            <section class="game__container--previous">
+                <h2 class="game__heading--previous-words">Previous Words</h2>
+                <div id="previous-words-box">
+                </div>
+            </section>
         </div>
         <div class="game__container--guesses">
             <div id="guesses"></div>
@@ -86,7 +87,9 @@
             <label for="input">Enter a letter</label>
             <input type="text" id="input" maxlength="1" autocomplete="off">
         </div>
-        <div><button id="start">Start Game</button><button id="next-game">Next Game</button>
+        <div class="game__container--buttons">
+            <button class="btn" id="start">Start Game</button>
+            <button class="btn" id="next-game">NextGame</button>
         </div>
     </main>
     <footer> <audio id="audio" src="./assets/audio/gameOver.mp3"></audio>

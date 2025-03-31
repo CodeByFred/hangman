@@ -54,6 +54,6 @@ export function addToPreviousWordList(word) {
     previousWordList.push(word);
     const addWord = document.createElement("p");
     addWord.textContent = word;
-    document.querySelector("#previous-words").appendChild(addWord);
+    document.querySelector("#previous-words-box").appendChild(addWord);
   }
 }
