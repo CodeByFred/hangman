@@ -4,6 +4,7 @@ body {
   background-image: url("./assets/img/background.jpg");
   background-color: rgba(255, 255, 255, 0.8);
   background-blend-mode: lighten;
+  @include mixins.game-font(0.8rem, 500);
 }
 
 li {
@@ -18,6 +19,11 @@ li {
   &:hover {
     cursor: pointer;
   }
+}
+
+p {
+  margin: 0;
+  line-height: 1.8;
 }
 
 .header {
@@ -35,16 +41,19 @@ li {
   align-items: center;
   flex-grow: 0;
   &__heading {
-    margin: 5% 0;
+    margin: 1% 0;
+    @include mixins.game-font(3rem, 800);
     &--previous-words {
-      margin: 0;
+      @include mixins.game-font(1.25rem, 600);
       text-align: center;
+      padding: 0;
+      margin: 0;
     }
   }
   &__alphabet {
     display: flex;
     flex-direction: column;
-    margin: 0;
+    margin-top: 5%;
   }
   &__content {
     width: 100%;
@@ -73,7 +82,7 @@ li {
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-bottom: 3%;
+    margin-bottom: 1%;
   }
   &__container--previous {
     display: flex;
@@ -81,14 +90,20 @@ li {
     height: 375px;
   }
   &__container--buttons {
-    width: 85px;
-    height: 25px;
+    width: 100px;
+    height: 15px;
     margin-top: 3%;
+  }
+  &__input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 
 .btn {
   border-radius: 5px;
+  @include mixins.game-font(0.8rem, 500);
 }
 
 #guesses {
@@ -116,4 +131,13 @@ li {
   flex-direction: column;
   align-items: center;
   overflow-y: auto;
+  height: 75%;
+}
+
+#won {
+  color: green;
+}
+
+#lost {
+  color: red;
 }

@@ -34,6 +34,7 @@ document.querySelector("#next-game").addEventListener("click", () => {
     displayGameStats(gameStats);
     addToPreviousWordList(currentWord);
     resetGame(getRandomWord());
+    document.querySelector("#input").focus();
   }
 });
 
@@ -53,16 +54,17 @@ document.querySelectorAll(".game__letter").forEach((cell) => {
 });
 
 document.querySelector("input").addEventListener("keyup", (e) => {
-  if (!gameOver) {
+  if (e.key < 65 || e.key > 90) return;
+  if (!gameOver && wordList.length !== 0) {
     const keyPressed = e.key.toUpperCase();
     let playedBefore = hasLetterBeenPlayed(keyPressed, lettersGuessed);
 
     playerTurn(keyPressed, currentWord, playedBefore, gameStats);
-
-    if (wordList.length === 0 || gameOver) {
-      document.querySelector("#next-game").style.display = "block";
-      displayGameStats(gameStats);
-      console.log(gameStats);
-    }
   }
+  if (gameOver && wordList.length !== 0) {
+    document.querySelector("#next-game").style.display = "block";
+    displayGameStats(gameStats);
+  }
+  document.querySelector("input").placeholder = "";
+  document.querySelector("input").value = "";
 });

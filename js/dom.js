@@ -49,8 +49,7 @@ export const displayGameStats = (stats) => {
 //
 export const playerTurn = (letter, currentWord, value, gameStats) => {
   if (value) return;
-  document.querySelector("input").placeholder = "";
-  document.querySelector("input").value = "";
+
   let found = false;
   for (let i = 0; i < currentWord.length; i++) {
     if (letter.toLowerCase() === currentWord[i]) {
@@ -63,7 +62,8 @@ export const playerTurn = (letter, currentWord, value, gameStats) => {
   console.log(currentWordUnderscoresArr.join(""), currentWord);
 
   if (currentWordUnderscoresArr.join("") === currentWord) {
-    console.log("game over");
+    document.querySelector("#win").play();
+    document.querySelector("#image").src = `./assets/img/you-win.png`;
     gameOver = true;
     gameStats.gamesWon++;
     updateAlphabetDisplay(letter, found);
@@ -74,9 +74,8 @@ export const playerTurn = (letter, currentWord, value, gameStats) => {
   }
 
   if (guesses === 10) {
-    document.querySelector("#audio").play();
-    console.log(guesses);
-    rotateImage(guesses);
+    document.querySelector("#image").src = `./assets/img/you-lose.png`;
+    document.querySelector("#lose").play();
     gameOver = true;
     gameStats.gamesLost++;
   } else {

@@ -3,6 +3,7 @@
 
 <!-- Background: <a href="https://www.freepik.com/free-ai-image/noisy-background_1038692.htm">Image by kues1 on Freepik</a> -->
 <!-- Image: <a href="https://www.freepik.com/free-photo/gallows-rope_5136935.htm">Image by picoftasty on Freepik</a> -->
+<!-- "Win" and "lose" images created by GenAI -->
 
 <head>
     <meta charset="UTF-8">
@@ -13,7 +14,11 @@
     <link rel="icon" href="data:,">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@300;400;500;600;700;800;900&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -77,22 +82,27 @@
             <section class="game__container--previous">
                 <h2 class="game__heading--previous-words">Previous Words</h2>
                 <div id="previous-words-box">
+
                 </div>
             </section>
         </div>
         <div class="game__container--guesses">
-            <div id="guesses"></div>
+            <div id="guesses">
+            </div>
         </div>
-        <div>
+        <div class="game__input">
             <label for="input">Enter a letter</label>
             <input type="text" id="input" maxlength="1" autocomplete="off">
         </div>
         <div class="game__container--buttons">
             <button class="btn" id="start">Start Game</button>
-            <button class="btn" id="next-game">NextGame</button>
+            <button class="btn" id="next-game">Next Game</button>
         </div>
     </main>
-    <footer> <audio id="audio" src="./assets/audio/gameOver.mp3"></audio>
+    <footer>
+        <audio id="lose" src="./assets/audio/gameOver.mp3"></audio>
+        <audio id="win" src="./assets/audio/win.mp3"></audio>
+        <audio id="wrong" src="./assets/audio/wrong.wav"></audio>
     </footer>
 </body>
 

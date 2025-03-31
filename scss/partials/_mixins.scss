@@ -4,3 +4,10 @@
   font-style: normal;
   font-size: $font-size;
 }
+
+@mixin game-font($font-size, $font-weight) {
+  font-family: "Inknut Antiqua", serif;
+  font-weight: $font-weight;
+  font-style: normal;
+  font-size: $font-size;
+}
