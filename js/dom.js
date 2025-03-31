@@ -43,10 +43,7 @@ export const displayGameStats = (stats) => {
 
   document.querySelector("#lost").textContent = `Games Lost ${stats.gamesLost}`;
 };
-//
-//
-//
-//
+
 export const playerTurn = (letter, currentWord, value, gameStats) => {
   if (value) return;
 
@@ -59,7 +56,6 @@ export const playerTurn = (letter, currentWord, value, gameStats) => {
       found = true;
     }
   }
-  console.log(currentWordUnderscoresArr.join(""), currentWord);
 
   if (currentWordUnderscoresArr.join("") === currentWord) {
     document.querySelector("#win").play();

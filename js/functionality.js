@@ -14,7 +14,6 @@ export async function readFile() {
     .then((response) => response.json())
     .then((data) => {
       wordList = data;
-      console.log("Words loaded");
       wordsleft = wordList.length;
       getRandomWord();
     })
@@ -24,7 +23,6 @@ export async function readFile() {
 export function getRandomWord() {
   const index = Math.floor(Math.random() * wordsleft);
   currentWord = wordList[index];
-  console.log(`Current word: ${currentWord}`);
   removeWordFromList(index);
   return currentWord;
 }
@@ -32,12 +30,10 @@ export function getRandomWord() {
 export function removeWordFromList(i) {
   wordList.splice(i, 1);
   wordsleft--;
-  console.log(wordList.length);
 }
 
 export const storeLettersGuessed = (letter) => {
   lettersGuessed.push(letter);
-  console.log(lettersGuessed);
 };
 
 export const hasLetterBeenPlayed = (ch, arr) => {
